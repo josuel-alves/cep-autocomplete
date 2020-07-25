@@ -1,9 +1,7 @@
 $(document).ready(function() {
     $("#cep").blur(function() {
         var cepVal = $('#cep').val();
-        console.log(cepVal);
         $.getJSON("//viacep.com.br/ws/"+cepVal+"/json/?callback=?", function(dados) {
-
             if (!("erro" in dados))
             {
                 // CEP valid
@@ -28,7 +26,6 @@ $(document).ready(function() {
                 $('#cidade').val('');
                 $('#uf').val('');
                 $('#result').empty().append('<div class="alert alert-danger">Cep não encontrado. Por favor, tente novamente!</div>');
-                
                 return false;
             }
         });
