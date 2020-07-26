@@ -1,7 +1,7 @@
-$(document).ready(function() {
-    $("#cep").blur(function() {
+$(document).ready(function(){
+    $("#cep").blur(function(){
         var cepVal = $('#cep').val();
-        $.getJSON("//viacep.com.br/ws/"+cepVal+"/json/?callback=?", function(dados) {
+        $.getJSON("//viacep.com.br/ws/"+cepVal+"/json/?callback=?", function(dados){
             if (!("erro" in dados))
             {
                 // CEP valid
