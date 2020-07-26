@@ -4,8 +4,7 @@ $(document).ready(function(){
         $.getJSON("//viacep.com.br/ws/"+cepVal+"/json/?callback=?", function(dados){
             if (!("erro" in dados))
             {
-                // CEP valid
-                console.log(dados);
+                // Valid CEP
                 $('#result').empty().append('<div class="alert alert-success">'+dados.logradouro +', '+dados.bairro+', '+dados.localidade+' - '+dados.uf+'</div>');
                 $('#logradouro').val(dados.logradouro);
                 $('#complemento').val(dados.complemento);
@@ -17,14 +16,8 @@ $(document).ready(function(){
             }
             else
             {
-                // CEP invalid
-                $('#cep').val('');
-                $('#logradouro').val('');
-                $('#numero').val('');
-                $('#complemento').val('');
-                $('#bairro').val('');
-                $('#cidade').val('');
-                $('#uf').val('');
+                // Invalid CEP
+                $('#cep', '#logradouro', '#numero', '#complemento', '#bairro', '#cidade', '#uf').val('');
                 $('#result').empty().append('<div class="alert alert-danger">Cep não encontrado. Por favor, tente novamente!</div>');
                 return false;
             }
